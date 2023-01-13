@@ -1,0 +1,99 @@
+.footer-section{
+    padding-top: 60px;
+    background-color: #2b2b2b;
+    .footer-inner{
+        display: flex;
+        justify-content: space-evenly;
+        .in-the-news{
+            text-align: left;
+            .stamping-part ,.chil-hm{
+                display: flex;
+                justify-content: space-between;
+                padding: 15px 0px;
+                border-bottom: 1px solid gray;
+                .img-part{
+                    img{
+                        height: 67px;
+                        width: 66px;
+                        border-radius: 50%;
+                        border: 2px solid #fff;
+                    }
+                }
+                .content-part{
+                    text-align: left;
+                    padding: 0px 20px;
+                    p{
+                        color: #717171;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .out-service{
+            text-align: left;
+            ul{
+                padding: 0 18px;
+            }
+        }
+        .other-location{
+            text-align: left;
+            ul{
+                list-style-type: ">";
+                padding: 0 8px;
+                li{
+                    padding: 5px 13px;
+                }
+            }
+        }
+    }
+    .footer-btm{
+        display: flex;
+        background-color: #262626;
+        justify-content: space-around;
+        padding: 13px 0px;
+        .copyright{
+            p{
+                font-size: 12px;
+                color: #717171;
+                margin: 0px !important;
+            }
+        }
+        .social-icon{
+            ul{
+                list-style:none;
+                margin: 0;
+                li{
+                    display: inline-block;
+                    padding: 0px 5px;
+                }
+            }
+        }
+    }
+}
+.chil-hm{
+    border-bottom: none !important;
+}
+h5{
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 15px !important;
+}
+h6{
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 11px !important;
+}
+ul {
+    li{
+    text-align: left;
+    font-size: 12px;
+    color: #717171;
+    padding: 4px 0px;
+    transition: .4s;
+    &:hover{
+        color:#fff;
+    }
+}
+}
+
+

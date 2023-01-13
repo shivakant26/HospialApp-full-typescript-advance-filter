@@ -1,0 +1,54 @@
+.header{
+    h1{
+        border: 1px solid;
+        display: inline-block;
+        padding: 8px 71px;
+        color: #464343;
+    }
+}
+.content-body{
+    display: flex;
+    justify-content: space-around;
+    .left-part{
+        .form-field{
+            margin-bottom: 20px;
+            input[type="text"]{
+                padding: 8px 20px;
+            }
+            .add-btn{
+                background-color: #464343;
+                padding: 8px 20px;
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: 900;
+                letter-spacing: 2.5px;
+                border: none;
+                border-radius: 5px;
+                transition: .5s;
+            }
+        }
+    }
+    .right-part{
+        width: 680px;
+        height: 400px;
+        overflow: scroll;
+        table{
+            border: 1px solid #464343;
+            border-collapse: collapse;
+            width: 100%;
+            position: relative;
+            tr,td,th{
+                border: 1px solid #464343;
+                padding: 8px 10px
+            }
+            th {
+                padding: 16px 10px !important;
+                background: #120c0c;
+                position: sticky;
+                top: -1px;
+                color: #fff;
+              }
+            
+        }
+    }
+}

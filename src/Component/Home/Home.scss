@@ -1,0 +1,274 @@
+.main-page{
+    .banner{
+        .banner-item{
+            position: relative;
+        img {
+            display: block;
+            height: 400px;
+            width: 100%;
+        }
+        .banner-content{
+            position: absolute;
+            top: 120px;
+            left: 441px;
+            border: 1px solid #fff;
+            padding: 13px 66px;
+            border-radius: 5px;
+            z-index: 5;
+            h2{
+                font-size: 30px;
+                color: #fff;
+            }
+            p{
+                color: #fff;
+            }
+        }
+        .overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+    }       
+    }
+    .our-section{
+        padding: 40px 0px;
+    .our-department{
+        display: flex;
+        .left-col{
+            width: 50%;
+            .teeth-img{
+                padding: 85px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        .right-col{
+            width: 50%;
+            text-align: left;
+            .our-dept-section{
+                padding: 85px 0px;
+            h3{
+                font-size: 30px;
+                font-weight: 300;
+                color:#059de9;
+                text-transform: uppercase;
+                margin: 0;
+            }
+            p{
+                color:#5b5b5b;
+                line-height: 22px;
+            }
+            ul{
+                padding: 0;
+                li{
+                    position: relative;
+                    list-style: none;
+                    color: #5b5b5b;
+                    padding: 9px 0px;
+                    width: 46%;
+                    display: inline-block;
+                    margin-left: 17px;
+                    &::before{
+                        content: url("../../assets/tooth-solid.svg");
+                        position: absolute;
+                        height: 10px;
+                        width: 10px;
+                        left: -19px;
+                        top: 11px;
+                    }
+                }
+            }
+        }
+        }
+    }
+    }
+    .service{
+        h3{
+            font-size: 30px;
+            font-weight: 300;
+            color:#059de9;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        p{
+            color:#5b5b5b;
+            line-height: 22px;
+        }
+        .dental-card-group{
+            display: flex;
+            justify-content: center;
+        .dental-card{
+            width: 26%;
+            padding: 45px 20px;
+            background-color: #70d0ca;
+            box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
+            h4{
+                font-size: 20px;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: #fff;
+                padding: 26px 0px 0px 0px;
+            }
+            p{
+                color: #fff;
+                padding: 0px 33px;
+                margin-bottom: 35px;
+            }
+            a{
+                text-decoration: none;
+                background: #fff;
+                padding: 8px 20px;
+                color: #70d0ca;
+                text-transform: uppercase;
+                font-size: 12px;
+                transition: .4s;
+                &:hover{
+                    background-color: #70d0ca;
+                    border:1px solid #fff;
+                    color: #fff;   
+                }
+            }
+            .cr-icons{
+                display: inline-block;
+                border-radius: 50%;
+                border: 2px solid #FFF;
+                padding: 46px;
+                transition: .4s;
+                &:hover{
+                    background-color: #fff;
+                    svg{
+                        color: #70d0ca !important;
+                    }
+                }
+                svg{
+                    font-size: 45px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    }
+    .way-to-section{
+        padding: 40px 0px;
+        .way-to{
+            display: flex;
+            .form-section{
+                width: 45%;
+                padding: 63px;
+                text-align: left;
+                .radio-group{
+                    display: flex;
+                    gap: 2;
+                }
+                .form-select{
+                    color: gray;
+                }
+                button{
+                    background: #009be9;
+                    color: #fff;
+                    border: none;
+                    padding: 4px 13px;
+                    transition: .4s;
+                    &:hover{
+                        background-color: #f75d2e;
+                    }
+                }
+            }
+            .way-to-image{
+                width: 55%;
+                background-image: url("../../assets/banner-two.jpg");
+                position: relative;
+                .group-image{
+                    .img-frist{
+                        position: absolute;
+                        top: 42px;
+                        img{
+                            height: 208px;
+                            width: 208px;
+                            border-radius: 50%;
+                        }  
+                    }
+                    .img-second{
+                        position: absolute;
+                        top: 222px;
+                        img{
+                            height: 208px;
+                            width: 208px;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .refer-section{
+        position: relative;
+        background-image: url("../../assets/banner-first.jpg");
+        background-size: cover;
+        .refer-content{
+            position: relative;
+            z-index: 1;
+            padding: 45px 100px;
+            text-align: left;
+            h2{
+                font-size: 68px;
+                font-weight: 100;
+                color: #fff;
+            }
+            p{
+                font-size: 25px;
+                color: #fff;
+            }
+            button{
+                background: transparent;
+                border: 1px solid #fff;
+                padding: 5px 26px;
+                color: #fff;
+                transition: .4s;
+                &:hover{
+                    background-color: #f75d2e;
+                    border:1px solid #f75d2e;
+                }  
+            }
+            .timer{
+                display: flex;
+                position: relative;
+                .common-style{
+                    padding: 0px 18px;
+                    background: #8ce0dc;
+                    margin: 36px 10px;
+                    font-size: 52px;
+                    color: #fff;
+                    border-radius: 5px;
+                }
+                .days, .hrs{
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        height: 15px;
+                        width: 5px;
+                        top: 69px;
+                        background-color: white;
+                        left: 5px;
+                    }
+                    &::after{
+                        position: absolute;
+                        content: "";
+                        height: 15px;
+                        width: 5px;
+                        top: 69px;
+                        background-color: white;
+                        right: 5px;
+                        left: 104px;
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
