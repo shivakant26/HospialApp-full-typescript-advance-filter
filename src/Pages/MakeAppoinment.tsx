@@ -1,23 +1,13 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { getAllPost } from '../Redux/authReducer';
-import { AppDispatch } from '../Redux/store';
+import React from "react";
+import MakeAppoinment from "../Component/MakeAppoitment/MakeAppoitment";
 
-const MakeAppoinment = () =>{
-    const dispatch = useDispatch<AppDispatch>();
-    const getResponse = useSelector((state)=>state);
-    console.log(123456,getResponse)
+const MakeAppoinmentPage = () => {
 
-    useEffect(()=>{
-        dispatch(getAllPost())
-    },[])
+  return (
+    <>
+      <MakeAppoinment />
+    </>
+  );
+};
 
-    return(
-        <>
-        <h1>make An Appoinment page</h1>
-        </>
-    )
-}
-
-export default MakeAppoinment;
+export default MakeAppoinmentPage;

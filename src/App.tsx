@@ -6,7 +6,8 @@ import Header from "./Component/Header/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ServiceAndTreatment from "./Pages/ServiceAndTreatment";
 import Footer from "./Component/Footer/Footer";
-import MakeAppoinment from "./Pages/MakeAppoinment";
+import MakeAppoinmentPage from "./Pages/MakeAppoinment";
+import WayToGive from "./Pages/WayToGive";
 
 const App = () => {
 
@@ -18,8 +19,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/service-and-treatment" element={<ServiceAndTreatment />} />
-          <Route path="/make-an-appoinment" element={<MakeAppoinment />} />
-
+          <Route path="/make-an-appoinment" element={<MakeAppoinmentPage />} />
+          <Route path="/way-to-give" element={<WayToGive />} />
         </Routes>
         <Footer />
       </Router>

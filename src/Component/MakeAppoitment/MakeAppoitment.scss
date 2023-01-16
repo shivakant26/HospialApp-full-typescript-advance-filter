@@ -1,0 +1,39 @@
+.make-appoint{
+    background-color: #0080e2;
+    padding: 61px 0px;
+    .form-section{
+        background: #fff;
+        padding: 50px 48px;
+        span{
+            margin-left: 12px;
+            font-size: 12px;
+            color:#c9c4cb;
+            a{
+                color: #878e96;
+            }
+        }
+    }
+    .form-text{
+        color: #fff !important;
+        text-align: left;
+        padding: 110px 15px;
+        h2{
+            font-size: 55px;
+            font-weight: 400;
+            line-height: 50px;
+            text-transform: capitalize;
+        }p{
+            a{
+              color: #fff;
+            }
+        }
+    }
+    .mb-4{
+        position: relative;
+    }
+    .text-danger{
+        text-align: left;
+        position: absolute;
+        font-size: 12px;
+    }
+}

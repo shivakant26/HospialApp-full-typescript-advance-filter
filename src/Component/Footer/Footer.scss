@@ -2,13 +2,11 @@
     padding-top: 60px;
     background-color: #2b2b2b;
     .footer-inner{
-        display: flex;
-        justify-content: space-evenly;
+        text-align: center;
         .in-the-news{
-            text-align: left;
+            text-align: center;
             .stamping-part ,.chil-hm{
                 display: flex;
-                justify-content: space-between;
                 padding: 15px 0px;
                 border-bottom: 1px solid gray;
                 .img-part{
@@ -36,12 +34,13 @@
             }
         }
         .other-location{
-            text-align: left;
+            text-align: center;
             ul{
                 list-style-type: ">";
-                padding: 0 8px;
+                padding: 0 63px;
                 li{
                     padding: 5px 13px;
+                    text-align: left;
                 }
             }
         }
