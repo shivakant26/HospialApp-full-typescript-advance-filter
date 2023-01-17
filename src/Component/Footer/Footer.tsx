@@ -5,7 +5,20 @@ import { FaFacebookF, FaTwitter, FaWifi, FaVuejs } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
+
 const Footer = () => {
+
+  const services: Array<string> = [
+    "Behavioral health",
+    "cancer program medical",
+    "cardiac rehab",
+    "diagnosic cardiology",
+    "GCM-suburban imaging",
+    "outpatient Surgery center",
+    "radiology",
+    "sleep disorders center",
+  ];
+  
   return (
     <>
       <div className="footer-section">
@@ -16,14 +29,9 @@ const Footer = () => {
                 <div className="out-service">
                   <h5>outpatient services</h5>
                   <ul>
-                    <li>Behavioral health</li>
-                    <li>cancer program medical</li>
-                    <li>cardiac rehab</li>
-                    <li>diagnosic cardiology</li>
-                    <li>GCM-suburban imaging</li>
-                    <li>outpatient Surgery center</li>
-                    <li>radiology</li>
-                    <li>sleep disorders center</li>
+                    {services.map((item, index) => {
+                      return <li key={index}>{item}</li>;
+                    })}
                   </ul>
                 </div>
               </Col>
@@ -40,8 +48,8 @@ const Footer = () => {
                     <div className="content-part">
                       <h6>stampin out pain</h6>
                       <p>
-                        Aching hands? Don't let athritis
-                       keep you from faorite...
+                        Aching hands? Don't let athritis keep you from
+                        faorite...
                       </p>
                     </div>
                   </div>
@@ -55,8 +63,8 @@ const Footer = () => {
                     <div className="content-part">
                       <h6>Children's Home sefety</h6>
                       <p>
-                        As you prepare for festive gath
-                        erings, it's a good idea...
+                        As you prepare for festive gath erings, it's a good
+                        idea...
                       </p>
                     </div>
                   </div>
