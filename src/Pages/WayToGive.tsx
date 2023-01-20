@@ -12,8 +12,9 @@ const inputType = {
 
 const WayToGive = () => {
   const [list, setList] = useState([]);
-  const [search, setSearch] = useState("");
+  const [searchName, setSearchName] = useState("");
   const [date, setDate] = useState("");
+  const [searchId, setSearchId] = useState("");
   const dispatch = useDispatch<AppDispatch>();
   const getResponse = useSelector((state: any) => state?.auth);
 
@@ -27,37 +28,51 @@ const WayToGive = () => {
     }
   }, [getResponse]);
 
-  const filterRecord = () => { 
+  const filterRecord = () => {
     const filterd = list?.filter((element: any) => {
-    var today = new Date(element.createdAt);
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
-    var yyyy = today.getFullYear();
-    var currentdate = yyyy + '-' + mm + '-' + dd;
-      // if (search && !date) {
-      //   return element.name.toLowerCase().includes(search.toLowerCase());
-      // } else if (date && !search) {
+      var today = new Date(element.createdAt);
+      var dd = String(today.getDate()).padStart(2, "0");
+      var mm = String(today.getMonth() + 1).padStart(2, "0");
+      var yyyy = today.getFullYear();
+      var currentdate = yyyy + "-" + mm + "-" + dd;
+      // if (searchName && !date && !searchId) {
+      //   return element.name.toLowerCase().includes(searchName.toLowerCase());
+      // } else if (date && !searchName && !searchId) {
       //   return element.createdAt.toLowerCase().includes(date.toLowerCase());
-      // } else if (search && date) {
+      // }else if (!date && !searchName && searchId) {
+      //   return element.id.toLowerCase() === (searchId.toLowerCase());
+      // }else if (!date && searchName && searchId) {
+      //   return element.name.toLowerCase().includes(searchName.toLowerCase()) &&
+      //          element.id.toLowerCase() === (searchId.toLowerCase());
+      // }else if (date && !searchName && searchId) {
+      //   return element.createdAt.toLowerCase().includes(date.toLowerCase()) &&
+      //          element.id.toLowerCase() === (searchId.toLowerCase());
+      // }else if (date && searchName && !searchId) {
+      //   return element.createdAt.toLowerCase().includes(date.toLowerCase()) &&
+      //          element.name.toLowerCase().includes(searchName.toLowerCase());
+      // }else if (searchName && date && searchId) {
       //   return (
-      //     element.name.toLowerCase().includes(search.toLowerCase()) &&
+      //     element.name.toLowerCase().includes(searchName.toLowerCase()) &&
+      //     element.id.toLowerCase().includes(searchId.toLowerCase()) &&
       //     currentdate.toLowerCase().includes(date.toLowerCase())
       //   );
       // } else {
       //   return false;
       // }
-     return search && !date || date && !search || search && date ? 
-      element.name.toLowerCase().includes(search.toLowerCase()) &&
-          currentdate.toLowerCase().includes(date.toLowerCase()) 
-      : "" ;
+      var search_id = searchId != "" ? element.id.toLowerCase().indexOf(searchId.toLowerCase()) !== -1 : true;
+      var search_name = searchName != "" ? element.name.toLowerCase().indexOf(searchName.toLowerCase()) !== -1 : true;
+      var search_date = date != "" ? currentdate.toLowerCase().indexOf(date.toLowerCase()) !== -1 : true;
+      return search_id && search_name && search_date ;
     });
     setList(filterd);
   };
-  const reset = () =>{
+
+  const reset = () => {
     setDate("");
-    setSearch("");
+    setSearchName("");
+    setSearchId("");
     dispatch(getAllData());
-  }
+  };
   return (
     <>
       <Container>
@@ -67,18 +82,29 @@ const WayToGive = () => {
           </Col>
           <Col md={8} style={{ textAlign: "right" }}>
             <Row>
-              <Col md={4}>
+              <Col md={2}>
                 <input
                   type="text"
                   name="name"
                   style={inputType}
                   placeholder="search by Name"
-                  value={search}
+                  value={searchId}
                   autoComplete="off"
-                  onChange={(e) => setSearch(e.target.value)}
+                  onChange={(e) => setSearchId(e.target.value)}
                 />
               </Col>
-              <Col md={4}>
+              <Col md={3}>
+                <input
+                  type="text"
+                  name="name"
+                  style={inputType}
+                  placeholder="search by Name"
+                  value={searchName}
+                  autoComplete="off"
+                  onChange={(e) => setSearchName(e.target.value)}
+                />
+              </Col>
+              <Col md={3}>
                 <input
                   type="date"
                   name="date"
@@ -98,7 +124,7 @@ const WayToGive = () => {
             </Row>
           </Col>
         </Row>
-        {list.length > 0 ? (
+        {list?.length > 0 ? (
           <>
             <Table striped bordered hover>
               <thead>
@@ -126,7 +152,7 @@ const WayToGive = () => {
             </Table>
           </>
         ) : (
-          <p style={{color:"red"}}>!!!Oops Record Not Found.</p>
+          <p style={{ color: "red" }}>!!!Oops Record Not Found.</p>
         )}
       </Container>
     </>

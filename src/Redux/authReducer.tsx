@@ -3,17 +3,19 @@ import axios from "axios";
 
 interface IData{
     status:string,
-    getpost:any,
-    getdata:any  
+    getsinglepost:any,
+    getdata:any,
+    getallpost:any  
 }
 
 const initialState : IData={
     status:"",
-    getpost:[],
-    getdata:[]
+    getsinglepost:[],
+    getdata:[],
+    getallpost:[]
 }
 
-export const getAllPost = createAsyncThunk("auth/getAllPost",async()=>{
+export const getSignlePost = createAsyncThunk("auth/getSignlePost",async()=>{
     try{
         const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
         return response;
@@ -32,24 +34,42 @@ export const getAllData = createAsyncThunk("auth/getAllData",async()=>{
 })
 
 
+export const getAllPost = createAsyncThunk("auth/getAllPost",async()=>{
+    try{
+        const response = await axios.get('https://dummyjson.com/posts');
+        return response;
+    }catch(error){
+        return error;
+    }
+})
+
 export const authSlice = createSlice({
     name:"auth",
     initialState,
     reducers:{},
     extraReducers:(builder)=>{
-        builder.addCase(getAllPost.pending,(state,action)=>{
+        builder.addCase(getSignlePost.pending,(state,action)=>{
             state.status = "loading";
-        }).addCase(getAllPost.fulfilled,(state,{payload})=>{
+        }).addCase(getSignlePost.fulfilled,(state,{payload})=>{
             state.status = "succuss"
-            state.getpost = payload;
-        }).addCase(getAllPost.rejected,(state,action)=>{
+            state.getsinglepost = payload;
+        }).addCase(getSignlePost.rejected,(state,action)=>{
             state.status = "failed";
         }).addCase(getAllData.pending,(state,action)=>{
             state.status = "loading";
         }).addCase(getAllData.fulfilled,(state,{payload})=>{
             state.status = "succuss"
+            state.getallpost = "";
             state.getdata = payload;
         }).addCase(getAllData.rejected,(state,action)=>{
+            state.status = "failed";
+        }).addCase(getAllPost.pending,(state,action)=>{
+            state.status = "loading";
+        }).addCase(getAllPost.fulfilled,(state,{payload})=>{
+            state.status = "succuss"
+            state.getdata = ""
+            state.getallpost = payload;
+        }).addCase(getAllPost.rejected,(state,action)=>{
             state.status = "failed";
         })
     }

@@ -11,19 +11,13 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AppDispatch } from "../../Redux/store";
-import { getAllPost } from "../../Redux/authReducer";
 import "./MakeAppoitment.scss";
 import { useFormik } from "formik";
 import { MakeFormValidation } from "../../Validation/MakeFormValidation";
 
 const MakeAppoinment = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const getResponse = useSelector((state) => state);
-  console.log(123456, getResponse);
 
-  useEffect(() => {
-    dispatch(getAllPost());
-  }, []);
 
   const formik = useFormik({
     initialValues: {
