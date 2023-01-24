@@ -12,6 +12,12 @@
         }
         .mb-3{
             text-align: left;
+            position: relative;
+            .error{
+                position: absolute;
+                font-size: 13px;
+                color: red;
+            }
         }
         input{
             &:focus{

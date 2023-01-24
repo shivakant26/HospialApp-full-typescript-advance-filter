@@ -31,27 +31,34 @@ const Register = () => {
     phone:null,
     city:""
   })
-  const nextstep = () => {
-    setFirstStep(false);
-    setSecondStep(true);
-    setThirdStep(false);
-  };
-  
-  const nextstepTwo = () =>{
-    setSecondStep(false);
-    setThirdStep(true);
+ 
+  const nextstep = (e:any, val:string) =>{
+    switch(val){
+      case "sv_one" :
+        setSecondStep(true);
+        setFirstStep(false);
+        break;
+        case "sv_two" :
+          setSecondStep(false);
+          setThirdStep(true);
+        break;
+        default:
+            return null ; 
+    }
   }
-  const Back = () =>{
-    // setFirstStep(false);
-    // setSecondStep(true);
-  }
-  const saveTwo = () =>{
-    setSecondStep(false);
-    setThirdStep(true);
-  }
-  const previousThird = () =>{
-    setSecondStep(true);
-    setThirdStep(false);
+  const previous = (e:any,val:string) =>{
+    switch(val){
+      case "p_second" :
+        setSecondStep(false);
+        setFirstStep(true);
+        break;
+        case "p_third" :
+          setThirdStep(false);
+          setSecondStep(true);
+        break;
+        default:
+            return null ; 
+    }
   }
 
   const registerUser = () =>{
@@ -98,8 +105,8 @@ const Register = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <div className="btn-ctrl">
-                    <Button onClick={Back}>previous</Button>
-                    <Button onClick={nextstep}>next</Button>
+                    <Button onClick={(e)=>previous(e,"p_first")}>previous</Button>
+                    <Button onClick={(e)=>nextstep(e,"sv_one")}>next</Button>
                   </div>
                 </Form.Group>
               </>
@@ -128,8 +135,8 @@ const Register = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <div className="btn-ctrl">
-                    <Button onClick={saveTwo}>save</Button>
-                    <Button onClick={nextstepTwo}>next</Button>
+                    <Button onClick={(e)=>previous(e,"p_second")}>Previous</Button>
+                    <Button onClick={(e)=>nextstep(e,"sv_two")}>next</Button>
                   </div>
                 </Form.Group>
               </>
@@ -158,7 +165,7 @@ const Register = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <div className="btn-ctrl">
-                    <Button onClick={previousThird}>previous</Button>
+                    <Button onClick={(e)=>previous(e,"p_third")}>previous</Button>
                     <Button onClick={registerUser}>Register</Button>
                   </div>
                 </Form.Group>
