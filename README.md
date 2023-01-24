@@ -1,5 +1,19 @@
-# contributer
+# Contributer
 Shivakant
+
+# Feature
+Best folder structure
+Banner slick banner
+Use type script
+Todo with Typescript based
+Redux toolkit with Typescript
+Lazy loading 
+Nested Routing
+Make Sub Menu with Functionality
+Stepper Form
+Private Routing
+Multiple Filter Funcationality
+Formik form with React
 
 # Getting Started with Create React App
 
