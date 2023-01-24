@@ -1,0 +1,65 @@
+.register-page{
+    padding: 40px 0px;
+    .regs-form{
+        width: 40%;
+        margin: 0 auto;
+        text-align: left;
+        h3{
+            text-align: left;
+            color: #008445;
+            text-transform: capitalize;
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+            margin-bottom: 30px;
+        }
+        .stteper{
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 35px;
+            .step-first,.step-two,.step-three{
+                padding: 3px 10px;
+                border-radius: 50%;
+                border: 3px solid gray;
+                transition: .4s;
+                position: relative;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    height: 3px;
+                    width: 69px;
+                    background-color: gray;
+                    top: 14px;
+                    left: 40px;
+                }
+                &:hover{
+                    border:3px solid #e626a1;
+                }
+            }
+            .step-three{
+                &::after{
+                    content: none !important;
+                }
+            }
+            .active{
+                border:3px solid #e626a1;
+            }
+            
+        }
+        input{
+            &:focus{
+                box-shadow: none !important;
+            }
+        }
+        .btn-ctrl{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0px;
+            button{
+                width: 200px;
+                text-transform: uppercase;
+                letter-spacing: 1.8px;
+                font-weight: bold;
+                font-size: 14px;
+            }
+        }
+    }
+}

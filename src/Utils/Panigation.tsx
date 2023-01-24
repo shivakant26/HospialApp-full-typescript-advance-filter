@@ -4,7 +4,7 @@ const Panigation = (props: any) => {
   const { showPerPage, onPanigationChange, panigation, total } = props;
   const [currentPage, setCurrentPage] = useState<any>(1);
   const totalpage = Math.ceil(total / showPerPage) - 1;
-
+  const pageNumberLimit = 4;
   // for pages
 
   const pages: any = [];
@@ -21,7 +21,7 @@ const Panigation = (props: any) => {
   };
 
   const pageNumbers = pages?.map((page: number) => {
-    if (page <= panigation.end && page > panigation.start) {
+    if (page <= panigation.end && page > panigation.start) { 
       return (
         <li
           key={page}
@@ -38,16 +38,17 @@ const Panigation = (props: any) => {
   });
 
   const onPrevClick = ()=>{
-    if((currentPage-1) % currentPage === 0){
-        panigation.end(panigation.end - currentPage);
-        panigation.start(panigation.start - currentPage);
+    if((currentPage-1) % pageNumberLimit === 0){
+        panigation.end(panigation.end - pageNumberLimit);
+        panigation.start(panigation.start - pageNumberLimit);
     }
     setCurrentPage((prev : any) => prev-1);
  }
+
  const onNextClick = ()=>{
   if(currentPage + 1 > panigation.end){
-      panigation.end(panigation.end + currentPage);
-      panigation.start(panigation.start + currentPage);
+      panigation.end(panigation.end + pageNumberLimit);
+      panigation.start(panigation.start + pageNumberLimit);
   }
   setCurrentPage((prev : any)=>prev+1);
 }
@@ -58,6 +59,7 @@ const Panigation = (props: any) => {
       <li onClick={() => onNextClick()}>&hellip;</li>
     );
   }
+
   let pageDecremenEllipses = null;
   if (panigation.end >= 1) {
     pageDecremenEllipses = (

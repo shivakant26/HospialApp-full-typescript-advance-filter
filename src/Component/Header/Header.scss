@@ -16,6 +16,7 @@
                 li{
                     list-style: none;
                     display: inline-block;
+                    position: relative;
                     a{
                         text-decoration: none;
                         color: gray;
@@ -25,6 +26,23 @@
                         transition: .4s;
                         &:hover{
                             color: #1aa6ea;
+                        }
+                    }
+                    ul{
+                        position: absolute;
+                        background: #fff !important;
+                        z-index: 5;
+                        text-align: left;
+                        padding: 10px 0px;
+                        border-radius: 5px;
+                        display: none;
+                        li{
+                            padding: 10px 0px;
+                        }
+                    }
+                    &:hover{
+                        ul{
+                            display: block;
                         }
                     }
                 }
