@@ -9,6 +9,13 @@ import Footer from "./Component/Footer/Footer";
 import { Spinner } from "react-bootstrap";
 import ProtectedRoutes from "./Routes/ProtectedRoute";
 import PublicRoutes from "./Routes/PublicRoute";
+import { Dash } from "./Component/Dashboard/Dash";
+import Logout from "./Component/Logout/logout";
+import Appointment from "./Component/Dashboard/Appointment";
+import Doctors from "./Component/Dashboard/Doctors";
+import Patients from "./Component/Dashboard/Patients";
+import Settings from "./Component/Dashboard/Settings";
+import Chat from "./Component/Dashboard/Chat";
 
 const HomePage = React.lazy(() => import("./Pages/HomePage"));
 const MakeAppoinmentPage = React.lazy(() => import("./Pages/MakeAppoinment"));
@@ -100,13 +107,70 @@ const App = () => {
                 }
               />
               <Route
-                path="/dashboard"
+                path="/dashboard/"
                 element={
                   <ProtectedRoutes>
                     <Dashboard />
                   </ProtectedRoutes>
                 }
-              />
+              >
+                <Route
+                  path="dash"
+                  element={
+                    <ProtectedRoutes>
+                      <Dash />
+                    </ProtectedRoutes>
+                  }
+                />
+                <Route
+                  path="logout"
+                  element={
+                    <ProtectedRoutes>
+                      <Logout />
+                    </ProtectedRoutes>
+                  }
+                />
+                <Route
+                  path="appointment"
+                  element={
+                    <ProtectedRoutes>
+                      <Appointment />
+                    </ProtectedRoutes>
+                  }
+                />
+                <Route
+                  path="doctors"
+                  element={
+                    <ProtectedRoutes>
+                      <Doctors />
+                    </ProtectedRoutes>
+                  }
+                />
+                <Route
+                  path="patients"
+                  element={
+                    <ProtectedRoutes>
+                      <Patients />
+                    </ProtectedRoutes>
+                  }
+                />
+                <Route
+                  path="settings"
+                  element={
+                    <ProtectedRoutes>
+                      <Settings />
+                    </ProtectedRoutes>
+                  }
+                />
+                <Route
+                  path="chat"
+                  element={
+                    <ProtectedRoutes>
+                      <Chat />
+                    </ProtectedRoutes>
+                  }
+                />
+              </Route>
               <Route path="*" element={<div>Page Not found</div>} />
             </Routes>
             <Footer />

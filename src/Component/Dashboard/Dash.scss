@@ -1,0 +1,86 @@
+
+    .sidebar{
+        ul{
+            list-style: none;
+            text-align: left;
+            li{
+                padding: 10px 0px;
+                a{
+                    color: #000;
+                    text-decoration: none;
+                    svg{
+                        font-size: 22px;
+                        margin-right: 13px;
+                    }
+                }
+            }
+        }
+    }
+    .content{
+        background-color: #f0f3f9;
+        text-align:left;
+        .bcamp-step{
+            padding: 23px 13px;
+            .bcamp-text{
+                font-size: 23px !important;
+                font-weight: 500;
+            }
+            .bcamp-text,.bcap-icon,.bcap-slug{
+                padding: 0px 10px;
+            }
+        }
+    }
+    .dash-page{
+        .card{
+            width: 22%;
+            display: inline-block;
+            margin: 5px;
+            background: linear-gradient(to left, #3a7bd5, #3a6073) !important;
+            color:#fff;
+            .card-body{
+                .card-title.h5{
+                    font-size: 18px !important; 
+                }
+            }
+           
+        }
+        .tody-apt{
+            padding: 30px 10px;
+            .today-tbl ,.pt-groups{
+                background: #fff;
+                padding: 20px;
+                border-radius: 15px;
+                h4{
+                    color: #5b626b;
+                    font-size: 17px;
+                    line-height: 28px;
+                    padding-right: 10px;
+                    font-weight: 500;
+                }
+            }
+            .pt-groups{
+                span{
+                    background: #6a46bc;
+                    padding: 7px 11px;
+                    border-radius: 50%;
+                    color: #fff;
+                    font-weight: 800;
+                }
+            }
+        }
+        .ds-btm-sec{
+            padding: 30px 0px;
+            .todo-list,.doct-list,.pt-list{
+                background: #fff;
+                padding: 20px;
+                border-radius: 15px;
+                h4{
+                    color: #5b626b;
+                    font-size: 17px;
+                    line-height: 28px;
+                    padding-right: 10px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }

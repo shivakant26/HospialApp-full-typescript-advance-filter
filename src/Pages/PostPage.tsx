@@ -45,7 +45,7 @@ const PostPage = () => {
               <>
                 {allPost?.slice(panigation.start, panigation.end)?.map((item: any, indext: number) => {
                   return (
-                    <Card>
+                    <Card className="pt-card">
                       <Card.Img variant="top" src={postImage} alt="post-image"/>
                       <Card.Body>
                         <Card.Title>{item.title}</Card.Title>
