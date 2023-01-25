@@ -1,8 +1,68 @@
 import React from "react";
 import { Button, Card, Col, Row, Table } from "react-bootstrap";
 import "./Dash.scss";
+import Doc from "../../assets/small-doc.jpeg";
+import {FaRegFilePdf} from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import PDF from "../../assets/document/doc.pdf";
 
 export const Dash = () => {
+  const doctors: Array<object> = [
+    { id: 1, doc_name: "Dr Jhon", status: "active" },
+    { id: 2, doc_name: "Dr Rathi", status: "inactive" },
+    { id: 3, doc_name: "Dr Bhargava", status: "active" },
+    { id: 4, doc_name: "Dr Padmesh", status: "active" },
+  ];
+  const toAppoinment: Array<object> = [
+    {
+      id: 1,
+      patientName: "mukesh",
+      gender: "male",
+      visit_date: "12/01/2023",
+      disease: "feaver",
+      pdf: PDF
+    },
+    {
+      id: 2,
+      patientName: "trisha",
+      gender: "female",
+      visit_date: "15/01/2023",
+      disease: "suger",
+      pdf: PDF
+    },
+    {
+      id: 3,
+      patientName: "kamlesh",
+      gender: "male",
+      visit_date: "22/01/2023",
+      disease: "maleriya",
+      pdf: PDF
+    },
+    {
+      id: 4,
+      patientName: "laxmi",
+      gender: "female",
+      visit_date: "20/01/2023",
+      disease: "dairiya",
+      pdf: PDF
+    },
+    {
+      id: 5,
+      patientName: "bets",
+      gender: "male",
+      visit_date: "12/01/2023",
+      disease: "eye",
+      pdf: PDF
+    },
+    {
+      id: 6,
+      patientName: "jhonshon",
+      gender: "male",
+      visit_date: "12/01/2023",
+      disease: "Haija",
+      pdf: PDF
+    },
+  ];
   return (
     <>
       <div className="dash-page">
@@ -71,7 +131,7 @@ export const Dash = () => {
             <Col md={8}>
               <div className="today-tbl">
                 <h4>Todays Appointment</h4>
-                <Table striped bordered hover>
+                <Table striped bordered hover style={{textTransform:"capitalize"}}>
                   <thead>
                     <tr>
                       <th>#</th>
@@ -84,33 +144,21 @@ export const Dash = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>John Doe</td>
-                      <td>Male</td>
-                      <td>12/05/2016	</td>
-                      <td>Cholera</td>
-                      <td>pdf</td>
-                      <td>button</td>
-                    </tr>
-                    <tr>
-                    <td>1</td>
-                      <td>John Doe</td>
-                      <td>Male</td>
-                      <td>12/05/2016	</td>
-                      <td>Cholera</td>
-                      <td>pdf</td>
-                      <td>button</td>
-                    </tr>
-                    <tr>
-                    <td>1</td>
-                      <td>John Doe</td>
-                      <td>Male</td>
-                      <td>12/05/2016	</td>
-                      <td>Cholera</td>
-                      <td>pdf</td>
-                      <td>button</td>
-                    </tr>
+                    {toAppoinment.map((item: any, index: any) => {
+                      return (
+                        <tr key={index}>
+                          <td>{item.id}</td>
+                          <td>{item.patientName}</td>
+                          <td>{item.gender}</td>
+                          <td>{item.visit_date}</td>
+                          <td>{item.disease}</td>
+                          <td><Link to={item.pdf} target='_blank'><FaRegFilePdf /></Link></td>
+                          <td>
+                            <button className="details-btn">details</button>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </Table>
               </div>
@@ -176,9 +224,9 @@ export const Dash = () => {
               </div>
             </Col>
             <Col md={4}>
-            <div className="doct-list">
-              <h4>Doctors List</h4>
-            <Table striped bordered hover>
+              <div className="doct-list">
+                <h4>Doctors List</h4>
+                <Table striped bordered hover>
                   <thead>
                     <tr>
                       <th>#</th>
@@ -187,30 +235,34 @@ export const Dash = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Dr Anand</td>
-                      <td>Male</td>
-                    </tr>
-                    <tr>
-                    <td>1</td>
-                      <td>Dr Aneeta</td>
-                      <td>FeMale</td>
-                    </tr>
-                    <tr>
-                    <td>1</td>
-                      <td>Dr Jhon</td>
-                      <td>Male</td>
-                    </tr>
+                    {doctors.map((data: any, index: any) => {
+                      return (
+                        <tr key={index}>
+                          <td>
+                            <img src={Doc} alt="doc image" />
+                          </td>
+                          <td>{data.doc_name}</td>
+                          <td>
+                            <span
+                              className={
+                                data.status === "active" ? "green" : "red"
+                              }
+                            >
+                              {data.status}
+                            </span>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </Table>
-            </div>
+              </div>
             </Col>
             <Col md={4}>
-            <div className="pt-list">
-              <h4>Number Of Patients</h4>
-              Graph here...
-            </div>
+              <div className="pt-list">
+                <h4>Number Of Patients</h4>
+                graph here...
+              </div>
             </Col>
           </Row>
         </div>

@@ -13,10 +13,11 @@ const Login = () => {
       password: "",
     },
     validationSchema: LoginValidation,
-    onSubmit: (values) => {
+    onSubmit: (values,{ resetForm }) => {
       if(values.email === "admin@gmail.com" && values.password === "123456"){
         localStorage.setItem("token","12sdfs54s13df45R$#WE");
         navigate("/dashboard");
+        resetForm();
       }
     },
   });
@@ -34,6 +35,7 @@ const Login = () => {
                     type="email"
                     placeholder="Email"
                     name="email"
+                    autoComplete="off"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
@@ -48,6 +50,7 @@ const Login = () => {
                     type="Password"
                     placeholder="Password"
                     name="password"
+                    autoComplete="off"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.password}
