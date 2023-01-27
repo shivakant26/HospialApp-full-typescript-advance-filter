@@ -15,7 +15,7 @@ import "./MakeAppoitment.scss";
 import { useFormik } from "formik";
 import { MakeFormValidation } from "../../Validation/MakeFormValidation";
 import { makeAppoinment } from "../../Redux/authReducer";
-import { date } from "yup/lib/locale";
+import {toast} from 'react-toastify';
 
 interface IFormStatus {
   sirName:string,
@@ -30,7 +30,8 @@ interface IFormStatus {
 
 const MakeAppoinment = () => {
   const dispatch = useDispatch<AppDispatch>();
-
+  const appointmentResp = useSelector((state:any)=>state?.auth)
+  console.log(25852,appointmentResp)
   const initialValues: IFormStatus = { 
     sirName:'',
       fullName:"",
@@ -53,6 +54,12 @@ const MakeAppoinment = () => {
   const handleRadioButtons = (e:any) => {
     formik.values.sirName = e.target.value
   } 
+
+  useEffect(()=>{
+    if(appointmentResp.status === 'success'){
+      toast.success("Appointment Booked!")
+    }
+  },[appointmentResp])
   return (
     <>
       <div className="make-appoint">

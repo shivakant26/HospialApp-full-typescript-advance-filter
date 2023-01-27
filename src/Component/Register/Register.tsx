@@ -1,9 +1,15 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Button, Container, Form, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import StepFirst from "../../Forms/StepFirst";
 import StepSecond from "../../Forms/StepSecond";
 import StepThird from "../../Forms/StepThird";
+import { authRegister } from "../../Redux/authReducer";
+import { AppDispatch } from "../../Redux/store";
 import "./Register.scss";
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 interface IFirstStep {
     firstName:string,
@@ -19,12 +25,16 @@ interface IThirdStep{
 }
 
 const Register = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const [firstStep, setFirstStep] = useState<boolean>(true);
   const [secondStep, setSecondStep] = useState<boolean>(false);
   const [thirdStep, setThirdStep] = useState<boolean>(false);
   const [fsData , setFsData] = useState({})
   const [seData , setSeData] = useState({})
   const [registerData , setRegisterData] = useState({})
+  const reg_resp = useSelector((state:any)=>state?.auth)
+  console.log(321,reg_resp)
  
   const nextstep = (e:any, val:string) =>{
     var data = val;
@@ -54,15 +64,22 @@ const Register = () => {
           setSecondStep(true);
         break;
         default:
-            return null ; 
+            return null; 
     }
   }
 
   const registerUser = (val:any) =>{
     const temp_data = {...fsData,...seData};
     const full_data = {...val , ...temp_data}
-    console.log(123456,full_data)
+    dispatch(authRegister(full_data));
   }
+
+  useEffect(()=>{
+    if(reg_resp?.status === "success"){
+      toast.success("Register Data successfully")
+      navigate("/login");
+    }
+  },[reg_resp])
 
   return (
     <>
