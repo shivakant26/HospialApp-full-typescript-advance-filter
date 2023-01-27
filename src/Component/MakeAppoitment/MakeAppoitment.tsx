@@ -14,25 +14,40 @@ import { AppDispatch } from "../../Redux/store";
 import "./MakeAppoitment.scss";
 import { useFormik } from "formik";
 import { MakeFormValidation } from "../../Validation/MakeFormValidation";
+import { makeAppoinment } from "../../Redux/authReducer";
+import { date } from "yup/lib/locale";
+
+interface IFormStatus {
+  sirName:string,
+  fullName: string,
+  email: string,
+  mobileNumber:number,
+  date:number,
+  time:number,
+  problem:string
+  status:number;
+}
 
 const MakeAppoinment = () => {
   const dispatch = useDispatch<AppDispatch>();
 
+  const initialValues: IFormStatus = { 
+    sirName:'',
+      fullName:"",
+      email:"",
+      mobileNumber:0,
+      date: 0,
+      time: 0,
+      problem: "",
+      status:0
+  };
 
   const formik = useFormik({
-    initialValues: {
-      sirName:'',
-      fullName: "",
-      email: "",
-      mobileNumber: "",
-      date: "",
-      time: "",
-      problem: "",
-    },
+     initialValues:initialValues,
     validationSchema: MakeFormValidation,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      // setFormState(values);
+    onSubmit: (values ,{resetForm}) => {
+      dispatch(makeAppoinment(values))
+      resetForm();
     },
   });
   const handleRadioButtons = (e:any) => {
@@ -81,7 +96,6 @@ const MakeAppoinment = () => {
                           onBlur={formik.handleBlur}
                           value={formik.values.fullName}
                         />
-
                         {formik.touched.fullName && formik.errors.fullName ? (
                           <div className="text-danger">
                             {formik.errors.fullName}
@@ -178,7 +192,6 @@ const MakeAppoinment = () => {
                           onBlur={formik.handleBlur}
                           value={formik.values.problem}
                         />
-
                         {formik.touched.problem && formik.errors.problem ? (
                           <div className="text-danger">
                             {formik.errors.problem}

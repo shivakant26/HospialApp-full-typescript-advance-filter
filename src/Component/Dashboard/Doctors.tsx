@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Doctors = () =>{
+    
     return(
         <>
         <p>Doctor content section</p>

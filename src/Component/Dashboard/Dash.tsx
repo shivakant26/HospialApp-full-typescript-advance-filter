@@ -4,7 +4,7 @@ import "./Dash.scss";
 import Doc from "../../assets/small-doc.jpeg";
 import {FaRegFilePdf} from 'react-icons/fa';
 import { Link } from "react-router-dom";
-import PDF from "../../assets/document/doc.pdf";
+// import PDF from "../../assets/document/doc.pdf";
 
 export const Dash = () => {
   const doctors: Array<object> = [
@@ -20,7 +20,7 @@ export const Dash = () => {
       gender: "male",
       visit_date: "12/01/2023",
       disease: "feaver",
-      pdf: PDF
+      // pdf: PDF
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ export const Dash = () => {
       gender: "female",
       visit_date: "15/01/2023",
       disease: "suger",
-      pdf: PDF
+      // pdf: PDF
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ export const Dash = () => {
       gender: "male",
       visit_date: "22/01/2023",
       disease: "maleriya",
-      pdf: PDF
+      // pdf: PDF
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ export const Dash = () => {
       gender: "female",
       visit_date: "20/01/2023",
       disease: "dairiya",
-      pdf: PDF
+      // pdf: PDF
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ export const Dash = () => {
       gender: "male",
       visit_date: "12/01/2023",
       disease: "eye",
-      pdf: PDF
+      // pdf: PDF
     },
     {
       id: 6,
@@ -60,7 +60,7 @@ export const Dash = () => {
       gender: "male",
       visit_date: "12/01/2023",
       disease: "Haija",
-      pdf: PDF
+      // pdf: PDF
     },
   ];
   return (
@@ -152,7 +152,7 @@ export const Dash = () => {
                           <td>{item.gender}</td>
                           <td>{item.visit_date}</td>
                           <td>{item.disease}</td>
-                          <td><Link to={item.pdf} target='_blank'><FaRegFilePdf /></Link></td>
+                          <td><Link to="#" target='_blank'><FaRegFilePdf /></Link></td>
                           <td>
                             <button className="details-btn">details</button>
                           </td>

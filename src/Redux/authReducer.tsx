@@ -5,19 +5,30 @@ interface IData{
     status:string,
     getsinglepost:any,
     getdata:any,
-    getallpost:any  
+    getallpost:any,
+    appoinment:any  
 }
 
 const initialState : IData={
     status:"",
     getsinglepost:[],
     getdata:[],
-    getallpost:[]
+    getallpost:[],
+    appoinment:[]
 }
+
+export const makeAppoinment = createAsyncThunk("auth/makeAppoinment",async(data:any)=>{
+    try{
+        const response = data;
+        return response;
+    }catch(error){
+        return error;
+    }
+})
 
 export const getSignlePost = createAsyncThunk("auth/getSignlePost",async()=>{
     try{
-        const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+        const response = await axios.get(`${process.env.REACT_APP_API_KEY}`);
         return response;
     }catch(error){
         return error;
@@ -26,7 +37,7 @@ export const getSignlePost = createAsyncThunk("auth/getSignlePost",async()=>{
 
 export const getAllData = createAsyncThunk("auth/getAllData",async()=>{
     try{
-        const response = await axios.get('https://62458ed12cfed1881722c047.mockapi.io/post');
+        const response = await axios.get(`${process.env.REACT_APP_POST_API_KEY}`);
         return response;
     }catch(error){
         return error;
@@ -36,7 +47,7 @@ export const getAllData = createAsyncThunk("auth/getAllData",async()=>{
 
 export const getAllPost = createAsyncThunk("auth/getAllPost",async()=>{
     try{
-        const response = await axios.get('https://dummyjson.com/posts');
+        const response = await axios.get(`${process.env.REACT_APP_DUMMY_API_KEY}`);
         return response;
     }catch(error){
         return error;
@@ -70,6 +81,14 @@ export const authSlice = createSlice({
             state.getdata = ""
             state.getallpost = payload;
         }).addCase(getAllPost.rejected,(state,action)=>{
+            state.status = "failed";
+        }).addCase(makeAppoinment.pending,(state,action)=>{
+            state.status = "loading";
+        }).addCase(makeAppoinment.fulfilled,(state,{payload})=>{
+            state.status = "succuss";
+            state.getdata = "";
+            state.appoinment.push(payload);
+        }).addCase(makeAppoinment.rejected,(state,action)=>{
             state.status = "failed";
         })
     }

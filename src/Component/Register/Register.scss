@@ -62,4 +62,12 @@
             }
         }
     }
+    .mb-3{
+        position: relative;
+        .error{
+            position: absolute;
+            font-size: 12px;
+            color: red;
+        }
+    }
 }
