@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const Appointment = () => {
+  const [status , setStatus] = useState(0);
   const resp = useSelector((state: any) => state?.auth?.appoinment);
-  console.log(resp)
+  const changeStatus = (val:any) =>{
+    let value = val + 1;
+    setStatus(value)
+  }
   return (
     <>
       <p>Appointment section</p>
@@ -37,7 +41,10 @@ const Appointment = () => {
                       <td>{item.date}</td>
                       <td>{item.time}</td>
                       <td>{item.problem}</td>
-                      <td><button>{item.status === 0 ? "Pending" : "Solve"}</button></td>
+                      <td><button
+                      className={status === 0 ? "red" : "green"}
+                      onClick={()=>changeStatus(item.status)}
+                      >{status === 0 ? "Pending" : "Solve"}</button></td>
                     </tr>
                   );
                 })}

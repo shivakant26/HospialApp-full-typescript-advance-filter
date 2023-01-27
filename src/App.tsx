@@ -16,7 +16,8 @@ import Doctors from "./Component/Dashboard/Doctors";
 import Patients from "./Component/Dashboard/Patients";
 import Settings from "./Component/Dashboard/Settings";
 import Chat from "./Component/Dashboard/Chat";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 const HomePage = React.lazy(() => import("./Pages/HomePage"));
 const MakeAppoinmentPage = React.lazy(() => import("./Pages/MakeAppoinment"));
 const WayToGive = React.lazy(() => import("./Pages/WayToGive"));
@@ -176,6 +177,7 @@ const App = () => {
             <Footer />
           </React.Suspense>
         </Router>
+        <ToastContainer />
       </div>
     </>
   );
